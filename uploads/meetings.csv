@@ -1,0 +1,17 @@
+date,title,duration_minutes,attendees,has_agenda,could_be_email
+2024-01-15,Team Standup,30,8,yes,no
+2024-01-15,Q1 Planning,120,15,no,no
+2024-01-15,Quick Sync,60,4,no,yes
+2024-01-15,1-on-1 with Manager,30,2,yes,no
+2024-01-16,Design Review,90,10,yes,no
+2024-01-16,Random Catchup,45,6,no,yes
+2024-01-16,Budget Discussion,60,12,no,no
+2024-01-17,Team Standup,30,8,yes,no
+2024-01-17,Brainstorming Session,90,20,no,no
+2024-01-17,Status Update,60,10,no,yes
+2024-01-17,Lunch and Learn,60,25,yes,no
+2024-01-17,Sprint Retrospective,60,8,yes,no
+2024-01-18,Team Standup,30,8,yes,no
+2024-01-18,Vendor Call,45,5,no,yes
+2024-01-19,Team Standup,30,8,yes,no
+2024-01-19,Weekly Wrap-up,60,12,no,yes
