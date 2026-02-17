@@ -39,13 +39,15 @@ def get_roast(results):
     score = results['productivity_score']
     overloaded = results['overloaded_days']
     could_be_email = results['could_be_email']
+    total = results['total_meetings']
 
     if score >= 80:
         return "Not bad! Your calendar is actually under control. Are you even trying to look busy?"
     elif score >= 60:
-        roast = f"You have {could_be_email} meetings that could've been emails. Your inbox is lonely."
-        return roast
+        return f"You have {could_be_email} meetings that could've been emails. Your inbox is lonely."
     elif score >= 40:
         return f"Yikes. {overloaded} overloaded days detected. Have you considered just... not attending?"
+    elif score >= 20:
+        return f"You spent time in {total} meetings. At this point, just move into the conference room."
     else:
-        return "Your calendar is a crime scene. Please seek help immediately."
+        return "Your calendar is a crime scene. Please seek help immediately. We're serious."
