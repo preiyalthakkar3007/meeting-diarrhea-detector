@@ -58,7 +58,10 @@
         .score .number {
             font-size: 3rem;
             font-weight: bold;
-            color: #e74c3c;
+        }
+        .score .label {
+            color: #666;
+            margin-top: 4px;
         }
         table {
             width: 100%;
@@ -118,7 +121,9 @@
     </div>
 
     <div class="score">
-        <div class="number">{{ results.productivity_score }}/100</div>
+        <div class="number" style="color: {{ '#27ae60' if results.productivity_score >= 70 else '#e67e22' if results.productivity_score >= 40 else '#e74c3c' }}">
+            {{ results.productivity_score }}/100
+        </div>
         <div class="label">Productivity Score</div>
     </div>
 
