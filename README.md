@@ -1,63 +1,99 @@
-# Meeting Diarrhea Detector
+﻿# 🚽 Meeting Diarrhea Detector
 
-Ever feel like your calendar has completely taken over your life? This tool analyzes your meeting data and tells you exactly how bad it is — then roasts you about it.
+> *"You don't have a productivity problem. You have a calendar problem."*
 
-## What it does
+[![Live Demo](https://img.shields.io/badge/🔴_LIVE_DEMO-meeting--diarrhea--detector.onrender.com-red?style=for-the-badge)](https://meeting-diarrhea-detector.onrender.com)
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square&logo=python)
+![Flask](https://img.shields.io/badge/Flask-3.1-black?style=flat-square&logo=flask)
+![Pandas](https://img.shields.io/badge/Pandas-2.x-purple?style=flat-square&logo=pandas)
 
-Upload a CSV of your meetings and get back:
-- A **productivity score** out of 100
-- Detection of **overloaded days** (4+ meetings)
-- Count of meetings that **could've been emails**
-- A **daily breakdown** of your calendar chaos
-- A personalized **roast** based on your results
+---
 
-## Tech stack
+## The Problem
 
-- Python + Flask (web framework)
-- Pandas (data analysis)
-- HTML/CSS (frontend dashboard)
+You wake up. Check your calendar. 6 meetings before lunch.  
+Three of them have no agenda. Two of them could've been a Slack message.  
+One of them is a meeting *to plan another meeting*.
 
-## How to run it
+**This tool diagnoses your calendar disease — and roasts you for it.**
 
-1. Clone the repo
+---
+
+## What You Get
+
+| Feature | What It Does |
+|--------|--------------|
+| 📊 **Productivity Score** | Rates your calendar health 0–100 (spoiler: it's bad) |
+| 🔥 **Overload Detector** | Flags days where meetings ate your soul (4+) |
+| 📧 **Could've Been an Email** | Counts the meetings that had no business existing |
+| 📅 **Daily Breakdown** | A table of your suffering, day by day |
+| 🎤 **Personalized Roast** | Brutally honest feedback based on your results |
+
+---
+
+## How It Works
 ```
-   git clone https://github.com/preiyalthakkar3007/meeting-diarrhea-detector.git
-   cd meeting-diarrhea-detector
+Upload CSV → Analyze → Get Roasted
 ```
 
-2. Create a virtual environment and install dependencies
+1. Export or create a CSV of your meetings
+2. Upload it to the app
+3. Receive your productivity score + a roast you probably deserve
+
+---
+
+## CSV Format
+```csv
+date,title,duration_minutes,attendees,has_agenda,could_be_email
+2024-01-15,Sprint Planning,60,8,yes,no
+2024-01-15,Sync Sync Sync,30,4,no,yes
 ```
-   python -m venv venv
-   venv\Scripts\activate
-   pip install -r requirements.txt
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `date` | YYYY-MM-DD | When the meeting happened |
+| `title` | text | What they called it |
+| `duration_minutes` | number | How long it stole from you |
+| `attendees` | number | How many people suffered |
+| `has_agenda` | yes/no | Did anyone prepare? |
+| `could_be_email` | yes/no | The real question |
+
+> 📁 A sample file is included at `sample_data/meetings.csv`
+
+---
+
+## Sample Output
+```
+📊 Productivity Score: 52/100
+📅 Meetings analyzed: 16 across 5 days  
+⏱️  Total meeting time: 15 hours
+🚨 Overloaded days: 2
+📧 Unnecessary meetings: 5
+
+🎤 Roast: "Yikes. 2 overloaded days detected.
+           Have you considered just... not attending?"
 ```
 
-3. Run the app
+---
+
+## Run Locally
+```bash
+git clone https://github.com/preiyalthakkar3007/meeting-diarrhea-detector.git
+cd meeting-diarrhea-detector
+pip install -r requirements.txt
+python app.py
+# Open http://127.0.0.1:5000
 ```
-   python app.py
-```
 
-4. Open your browser and go to `http://127.0.0.1:5000`
+---
 
-## CSV format
+## Tech Stack
 
-Your CSV file should have these columns:
+- **Backend:** Python + Flask
+- **Data Analysis:** Pandas
+- **Frontend:** HTML/CSS (Jinja2 templates)
+- **Deployment:** Render
 
-| Column | Description | Values |
-|---|---|---|
-| date | Meeting date | YYYY-MM-DD |
-| title | Meeting name | Any text |
-| duration_minutes | Length in minutes | Number |
-| attendees | Number of attendees | Number |
-| has_agenda | Whether it had an agenda | yes / no |
-| could_be_email | Could it have been an email? | yes / no |
+---
 
-A sample file is included in `sample_data/meetings.csv` to get you started.
-
-## Sample output
-
-- 16 meetings analyzed across 5 days
-- 15 hours of meeting time detected
-- 5 meetings flagged as unnecessary
-- Productivity score: 52/100
-- Verdict: *"Yikes. 2 overloaded days detected. Have you considered just... not attending?"*
+*Built because someone had 8 meetings in one day and needed to cope.*
